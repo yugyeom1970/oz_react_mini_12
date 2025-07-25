@@ -1,16 +1,8 @@
 import styled from 'styled-components';
 import data from '../assets/data/movieDetailData.json';
 import { imageUrl } from './config';
+import { useParams } from 'react-router-dom';
 
-const MovieBox = styled.div`
-    display: flex;
-    gap: 24px;
-    padding: 70px;
-    min-width: 600px;
-    justify-content: center;
-    background-color: #a9a9a95f;
-    border-radius: 17px;
-`
 
 const Poster = styled.img`
     width: 300px;
@@ -44,21 +36,27 @@ const Overview = styled.p`
 `
 
 function DetailPage () {
+    const { id } = useParams();
+    const movie = data;
     
-
+    if(Number(id) !== movie.id) {
+        return <h3 style={{color: "white"
+        }}>영화를 찾을 수 없습니다</h3>
+    }
+    
     return (
         <>
             <div className='movie-box'>
                 <Poster
-                src= {imageUrl + data.poster_path} alt={data.title}/>
+                src= {imageUrl + movie.poster_path} alt={movie.title}/>
 
                 <MovieInfo>
                     <TitleRating>
-                        <h2>{data.title}</h2>
-                        <span>평점: {data.vote_average}</span>
+                        <h2>{movie.title}</h2>
+                        <span>평점: {movie.vote_average}</span>
                     </TitleRating>
-                    <Genre>{data.genres.map(genre => genre.name).join(',')}</Genre>
-                    <Overview>{data.overview}</Overview>
+                    <Genre>{movie.genres.map(genre => genre.name).join(',')}</Genre>
+                    <Overview>{movie.overview}</Overview>
                 </MovieInfo>
             </div>
         </>

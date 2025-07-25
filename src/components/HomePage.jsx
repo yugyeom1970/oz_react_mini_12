@@ -10,9 +10,9 @@ function HomePage() {
         {data.results.map((movie) => (
 
             <MovieCard
-        key={movie.id}
+        id={movie.id}
         title={movie.title}
-        poster={ movie.poster_path}
+        poster={movie.poster_path}
         rating={movie.vote_average}/>
         )
     )}
