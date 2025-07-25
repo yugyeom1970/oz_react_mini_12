@@ -48,7 +48,7 @@ function DetailPage () {
 
     return (
         <>
-            <MovieBox>
+            <div className='movie-box'>
                 <Poster
                 src= {imageUrl + data.poster_path} alt={data.title}/>
 
@@ -60,7 +60,7 @@ function DetailPage () {
                     <Genre>{data.genres.map(genre => genre.name).join(',')}</Genre>
                     <Overview>{data.overview}</Overview>
                 </MovieInfo>
-            </MovieBox>
+            </div>
         </>
     )
 

@@ -3,17 +3,18 @@
   margin: 0;
   padding: 0;
 }
-
 body {
-  display: flex;
-  align-items: center;
   background-color: black;
-  
 }
 
 #root {
   max-width: 1280px;
   margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .movie-list {
@@ -29,6 +30,16 @@ padding-top: 40px;
   border-radius: 15px;
   padding: 15px;
 
+}
+
+.movie-box {
+    display: flex;
+    gap: 24px;
+    padding: 70px;
+    justify-content: center;
+    background-color: #a9a9a95f;
+    border-radius: 17px;
+    min-width: 50rem;
 }
 
 h3 {color: white;}
